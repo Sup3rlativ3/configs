@@ -28,8 +28,7 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles.
-            "backgroundImage" : "ms-appdata:///roaming/HWMjae.png",
-            "backgroundImageOpacity" : 0.25,
+            "backgroundImageOpacity" : 0.15,
             "backgroundImageStretchMode" : "fill",
             "colorScheme": "Night Owl"
         },
@@ -40,7 +39,10 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
                 "commandline": "powershell.exe",
-                "hidden": false
+                "hidden": false,
+                "backgroundImage" : "ms-appdata:///roaming/win_powershell.png",
+                "backgroundImageStretchMode": "uniform",
+                "colorScheme": "PowerShellTom"
             },
             {
                 // Make changes here to the cmd.exe profile.
@@ -59,7 +61,8 @@
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell 7",
-                "source": "Windows.Terminal.PowershellCore"
+                "source": "Windows.Terminal.PowershellCore",
+                "backgroundImage" : "ms-appdata:///roaming/core_powershell.png"
             }
         ]
     },
@@ -109,6 +112,50 @@
             "red": "#EF5350",
             "white": "#FFFFFF",
             "yellow": "#ADDB67"
+        },
+        {
+            // Color Scheme: PowerShellTom
+            "background" : "#012456",
+            "black" : "#000000",
+            "blue" : "#0000ff",
+            "brightBlack" : "#AAAAAA",
+            "brightBlue" : "#44B4CC",
+            "brightCyan" : "#19D1D8",
+            "brightGreen" : "#81EC0D",
+            "brightPurple" : "#FF00FF",
+            "brightRed" : "#FF0000",
+            "brightWhite" : "#E5E5E5",
+            "brightYellow" : "#FFD93D",
+            "cyan" : "#19D1D8",
+            "foreground" : "#FFFFFF",
+            "green" : "#00ff00",
+            "name" : "PowerShellTom",
+            "purple" : "#9933CC",
+            "red" : "#FF6600",
+            "white" : "#F5F5F5",
+            "yellow" : "#FFD93D"
+        },
+        {
+            // Color Scheme: VibrantTom
+            "background" : "#16171D",
+            "black" : "#878787",
+            "blue" : "#44B4CC",
+            "brightBlack" : "#E373C8",
+            "brightBlue" : "#0000FF",
+            "brightCyan" : "#19D1D8",
+            "brightGreen" : "#81EC0D",
+            "brightPurple" : "#FF00FF",
+            "brightRed" : "#FF0000",
+            "brightWhite" : "#E5E5E5",
+            "brightYellow" : "#FFD93D",
+            "cyan" : "#19D1D8",
+            "foreground" : "#FFFFFF",
+            "green" : "#CCFF04",
+            "name" : "VibrantTom",
+            "purple" : "#9933CC",
+            "red" : "#FF6600",
+            "white" : "#F5F5F5",
+            "yellow" : "#FFD93D"
         }
     ],
 
