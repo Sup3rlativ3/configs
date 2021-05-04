@@ -1,8 +1,42 @@
-Add-WindowsPSModulePath
-Import-Module WindowsPSModulePath
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Import-Module posh-git
 Import-Module oh-my-posh
+
+# Import-Module ExchangeOnlineManagement
+# Import-Module AzureAD
+# Import-Module NTFSSecurity
+
+function Test-ADCredential {
+    [CmdletBinding()]
+    param ( [string]$Username,
+        [string]$Password
+)
+    Param
+    (
+        [Parameter(Mandatory=$true)][string]$UserName,
+        [Parameter(Mandatory=$true)][string]$Password
+    )
+        Add-Type -AssemblyName System.DirectoryServices.AccountManagement
+        $DS = New-Object System.DirectoryServices.AccountManagement.PrincipalContext('domain')
+        $DS.ValidateCredentials($UserName, $Password)
+    }
+
+function Lockout-Account {
+    [CmdletBinding()]
+param (
+    [Parameter()]
+    [String]$Username,
+    [String]$ComputerName,
+    [int]$Times
+)
+$Pass = "MyFakePassword"
+$Password = ConvertTo-SecureString $Pass -AsPlainText -Force
+$y = 1..$times
+foreach($x in $y)
+    {
+        Invoke-Command -ComputerName $ComputerName {Get-Process} -Credential (New-Object System.Management.Automation.PSCredential ($Username, $Password)) -ErrorAction SilentlyContinue
+    }
+}
 
 function global:prompt {  # Multiple Write-Host commands with color
     Write-Host("[") -nonewline
