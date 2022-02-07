@@ -47,26 +47,31 @@ try {
     if ($Selected -contains "PowerShell Core") {
         Write-Output "Installing PWSH"
         winget install --id=Microsoft.PowerShell --exact --silent --accept-package-agreements --accept-source-agreements
+        Write-Output "Successfully installed PWSH."
     }
     
     if ($Selected -contains "Windows Terminal") {
         Write-Output "Installing WinTerm"
         winget install --id=Microsoft.WindowsTerminal --exact --silent --accept-package-agreements --accept-source-agreements
+        Write-Output "Successfully installed Windows Terminal."
     }
 
     if ($Selected -contains "7-Zip") {
-        Write-Output "Installing ShareX"
+        Write-Output "Installing 7-Zip"
         winget install --id=7zip.7zip --exact --silent --accept-package-agreements --accept-source-agreements
+        Write-Output "Successfully installed 7-Zip."
     }
         
     if ($Selected -contains "VSCode") {
         Write-Output "Installing VSCode"
         winget install --id=Microsoft.VisualStudioCode --exact --silent --accept-package-agreements --accept-source-agreements
+        Write-Output "Successfully installed VSCode."
     }
     
     if ($Selected -contains "ShareX") {
         Write-Output "Installing ShareX"
         winget install --id=ShareX.ShareX --exact --silent --accept-package-agreements --accept-source-agreements
+        Write-Output "Successfully installed ShareX."
     }
     
 }
