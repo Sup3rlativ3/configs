@@ -1,12 +1,11 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Import-Module posh-git
-Import-Module oh-my-posh
+Import-Module posh-git, oh-my-posh, Terminal-Icons
 
 # Import-Module ExchangeOnlineManagement
 # Import-Module AzureAD
 # Import-Module NTFSSecurity
 
-Import-Module Terminal-Icons
+
 
 function Test-Administrator {
     $user = [Security.Principal.WindowsIdentity]::GetCurrent();
