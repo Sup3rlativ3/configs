@@ -32,7 +32,7 @@ function Install-Fonts {
 #endregion
 
 try {
-    Install-Module .\PS-Menu\
+    Import-Module .\ps-menu\ps-menu.psd1
 }
 catch {
     Write-Output "Failed to install the menu module."
@@ -75,19 +75,6 @@ catch {
     Write-Output $Error[0]
 }
 
-# Copy the PowerShell profiles
-try {
-    $MyDocs = [environment]::getfolderpath("mydocuments")
-    Write-Output "Copying PoSH config"
-    Copy-Item -Path .\Microsoft.PowerShell_profile.ps1 -Destination "$MyDocs\WindowsPowerShell\"
-    Write-Output "Copying PWSH config"
-    Copy-Item -Path .\Microsoft.PowerShell_profile.ps1 -Destination "$MyDocs\PowerShell\"
-}
-catch {
-    Write-Output "Error copying the PowerShell profiles"
-    Write-Output $Error[0]
-}
-
 # Download and install the font
 try {
     $FontMenu = New-Menu -MenuItems @("Yes","No") -Message "Would you like to download & install the JetBrains font for use with glyphs"
@@ -101,6 +88,9 @@ try {
         if (!($Fonts -Contains "JetBrainsMono NF")) {
             Write-Output "Error installing font."
             Write-Output "Please install the font manually."
+        }
+        else {
+            Write-Output "The font was installed successfully."
         }
     }
 }
@@ -125,10 +115,23 @@ catch {
 
 # Install modules
 try {
-    pwsh -command "Install-Module posh-git, oh-my-posh, Terminal-Icons -Force"
+    . "C:\Program Files\PowerShell\7\pwsh.exe" -command "Install-Module posh-git, oh-my-posh, Terminal-Icons -Force"
     Install-Module posh-git, oh-my-posh, Terminal-Icons -Force
 }
 catch {
     Write-Output "Error installing powershell modules"
+    Write-Output $Error[0]
+}
+
+# Copy the PowerShell profiles
+try {
+    $MyDocs = [environment]::getfolderpath("mydocuments")
+    Write-Output "Copying PoSH config"
+    Copy-Item -Path .\Microsoft.PowerShell_profile.ps1 -Destination "$MyDocs\WindowsPowerShell\"
+    Write-Output "Copying PWSH config"
+    Copy-Item -Path .\Microsoft.PowerShell_profile.ps1 -Destination "$MyDocs\PowerShell\"
+}
+catch {
+    Write-Output "Error copying the PowerShell profiles"
     Write-Output $Error[0]
 }
