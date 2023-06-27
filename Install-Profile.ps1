@@ -32,6 +32,7 @@ function Install-Fonts {
 #endregion
 
 try {
+    git clone https://github.com/Sup3rlativ3/ps-menu.git .\ps-menu
     Import-Module .\ps-menu\ps-menu.psd1
 }
 catch {
@@ -87,7 +88,7 @@ try {
     
     if ($FontMenu -Contains "Yes") {
         Write-Output "Downloading the font"
-        Invoke-WebRequest "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf" -OutFile ".\JetBrains_Mono_Regular_Nerd_Complete_Windows.ttf"
+        Invoke-WebRequest "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf" -OutFile ".\JetBrains_Mono_Regular_Nerd_Complete_Windows.ttf"
         Install-Fonts -FontFile .\JetBrains_Mono_Regular_Nerd_Complete_Windows.ttf
         $Fonts = (New-Object System.Drawing.Text.InstalledFontCollection).Families
         if (!($Fonts -Contains "JetBrainsMono NF")) {
