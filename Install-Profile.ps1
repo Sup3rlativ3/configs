@@ -91,7 +91,7 @@ try {
         Invoke-WebRequest "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf" -OutFile ".\JetBrains_Mono_Regular_Nerd_Complete_Windows.ttf"
         Install-Fonts -FontFile .\JetBrains_Mono_Regular_Nerd_Complete_Windows.ttf
         $Fonts = (New-Object System.Drawing.Text.InstalledFontCollection).Families
-        if (!($Fonts -Contains "JetBrainsMono NF")) {
+        if (!($Fonts -Contains "JetBrainsMono NFM")) {
             Write-Output "Error installing font."
             Write-Output "Please install the font manually."
         }
@@ -121,11 +121,19 @@ catch {
 
 # Install modules
 try {
-    . "C:\Program Files\PowerShell\7\pwsh.exe" -command "Install-Module posh-git, oh-my-posh, Terminal-Icons -Force"
-    Install-Module posh-git, oh-my-posh, Terminal-Icons -Force
+    . "C:\Program Files\PowerShell\7\pwsh.exe" -command "Install-Module posh-git, Terminal-Icons -Force"
+    Install-Module posh-git, Terminal-Icons -Force
 }
 catch {
     Write-Output "Error installing powershell modules"
+    Write-Output $Error[0]
+}
+
+try {
+    winget install JanDeDobbeleer.OhMyPosh -s winget --exact --silent --accept-package-agreements --accept-source-agreements
+}
+catch {
+    Write-Output "Error installing oh-my-posh using winget"
     Write-Output $Error[0]
 }
 

@@ -1,9 +1,5 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Import-Module posh-git, oh-my-posh, Terminal-Icons
-
-# Import-Module ExchangeOnlineManagement
-# Import-Module AzureAD
-# Import-Module NTFSSecurity
+Import-Module posh-git, Terminal-Icons
 
 
 
@@ -26,23 +22,6 @@ function Test-ADCredential {
         $DS = New-Object System.DirectoryServices.AccountManagement.PrincipalContext('domain')
         $DS.ValidateCredentials($UserName, $Password)
     }
-
-function Lockout-Account {
-    [CmdletBinding()]
-param (
-    [Parameter()]
-    [String]$Username,
-    [String]$ComputerName,
-    [int]$Times
-)
-$Pass = "MyFakePassword"
-$Password = ConvertTo-SecureString $Pass -AsPlainText -Force
-$y = 1..$times
-foreach($x in $y)
-    {
-        Invoke-Command -ComputerName $ComputerName {Get-Process} -Credential (New-Object System.Management.Automation.PSCredential ($Username, $Password)) -ErrorAction SilentlyContinue
-    }
-}
 
 function global:prompt {  # Multiple Write-Host commands with color
     if(Test-Administrator){

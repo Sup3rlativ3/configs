@@ -1,7 +1,17 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
+        {
+            "command": 
+            {
+                "action": "globalSummon",
+                "monitor": "toMouse",
+                "toggleVisibility": true
+            },
+            "keys": "ctrl+shift+d"
+        },
         {
             "command": 
             {
@@ -9,14 +19,6 @@
                 "singleLine": false
             },
             "keys": "ctrl+c"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
         },
         {
             "command": 
@@ -28,30 +30,35 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": 
-            {
-                "action": "globalSummon",
-                "monitor": "toMouse",
-                "toggleVisibility": true
-            },
-            "keys": "ctrl+shift+d"
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": true,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
         {
-            "backgroundImageOpacity": 0.14999999999999999,
+            "backgroundImageOpacity": 0.15,
             "backgroundImageStretchMode": "fill",
             "colorScheme": "Night Owl",
             "cursorShape": "vintage",
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "JetBrainsMono NF"
+                "face": "JetBrainsMono Nerd Font Mono"
             }
         },
         "list": 
@@ -60,20 +67,18 @@
                 "backgroundImage": "ms-appdata:///roaming/win_powershell.png",
                 "backgroundImageStretchMode": "uniform",
                 "colorScheme": "PowerShellTom",
-                "commandline": "powershell.exe",
                 "font": 
                 {
-                    "face": "JetBrainsMono NF"
+                    "face": "JetBrainsMono Nerd Font Mono"
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "cmd.exe",
                 "font": 
                 {
-                    "face": "JetBrainsMono NF"
+                    "face": "JetBrainsMono Nerd Font Mono"
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -94,7 +99,7 @@
                 "cursorShape": "vintage",
                 "font": 
                 {
-                    "face": "JetBrainsMono NF"
+                    "face": "JetBrainsMono Nerd Font Mono"
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -405,5 +410,6 @@
             "yellow": "#808000"
         }
     ],
-    "startOnUserLogin": true
+    "startOnUserLogin": true,
+    "themes": []
 }
