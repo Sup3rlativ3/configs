@@ -142,8 +142,11 @@ try {
     $MyDocs = [environment]::getfolderpath("mydocuments")
     Write-Output "Copying PoSH config"
     Copy-Item -Path .\Microsoft.PowerShell_profile.ps1 -Destination "$MyDocs\WindowsPowerShell\"
+    Copy-Item -Path .\SysOp.omp.json -Destination "$MyDocs\WindowsPowerShell\"
     Write-Output "Copying PWSH config"
     Copy-Item -Path .\Microsoft.PowerShell_profile.ps1 -Destination "$MyDocs\PowerShell\"
+    Copy-Item -Path .\SysOp.omp.json -Destination "$MyDocs\PowerShell\"
+    oh-my-posh --init --shell pwsh --config .\SysOp.omp.json | Invoke-Expression
 }
 catch {
     Write-Output "Error copying the PowerShell profiles"
